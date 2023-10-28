@@ -1,0 +1,45 @@
+<html>
+    <body>
+    <h1>Search for a student</h1>
+    {{form_start(f)}}
+    {{form_label(f.Room)}}
+    {{form_widget(f.Room)}}
+    {{form_end(f)}}
+        <h1>List of Student</h1>
+        <table border="5">
+            <tr>
+                <td>ID</td>
+                <td>name</td>
+                <td>Description</td>
+                <td>Age</td>
+                <td>Room</td>
+                <td>Action</td>
+                <td>Delete</td>
+               
+            </tr>
+            {% for a in student %}
+                <tr>
+                    <td>{{a.id}}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{a.Description}}</td>
+                    <td>{{a.age}}</td>
+                    <td>{{a.room.name}}</td>
+                    <td><a href="{{ path('student_edit', {'id': a.id}) }}">Edit</a></td>
+                    <td><a href="{{ path('student_delete', {'id': a.id}) }}">Delete</a></td>
+                   
+                    
+                </tr>
+                {% endfor %}
+        </table>
+
+        
+
+        <br>
+        <a href="{{ path('student_add') }}"><button>Create New Student</button></a>
+        <a href="{{ path('room_show') }}"><button>Room list</button></a>
+        
+
+
+
+    </body>
+</html>
