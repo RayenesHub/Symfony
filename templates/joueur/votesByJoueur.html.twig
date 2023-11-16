@@ -1,0 +1,16 @@
+{% if votes is empty %}
+    <h5>Pas de vote</h5>
+{% else %}
+    <table class="table-bordered" border='1'>
+        <!-- ... other table headers or structure -->
+        <tbody>
+            {% for vote in votes %}
+                <tr>
+                    <td>{{ vote.date | date }}</td>
+                    <td>{{ vote.moyenneVote }}</td>
+                    <!-- ... other columns as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

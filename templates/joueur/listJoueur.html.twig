@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joueurs liste</title>
+</head>
+<body>
+
+    <table border="1" align="centre">
+        <tr>
+            <td>id</td>
+            <td>nom</td>
+            <td>equipe</td>
+            <td>Action</td>
+        </tr>
+        {% for i in Joueurs %}
+            
+        
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.nom}}</td>
+            <td>{{i.equipe}}</td>
+            <td>
+              <a href="{{ path('author_details', {'id': i.id}) }}">details</a>
+                <a href="{{ path('Joueur_vote')}}">vote</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    
+</body>
+</html>
